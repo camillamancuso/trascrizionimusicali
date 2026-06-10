@@ -283,7 +283,7 @@ h4 { font-size: 1rem; }
   align-items: center;
 }
 @media (min-width: 900px) {
-  .hero__inner { grid-template-columns: 1fr 420px; gap: 4rem; }
+  .hero__inner { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: stretch; }
 }
 
 .hero__badge {
@@ -341,24 +341,29 @@ h4 { font-size: 1rem; }
   display: none;
 }
 @media (min-width: 900px) {
-  .hero__visual { display: block; }
+  .hero__visual {
+    display: flex;
+    align-items: stretch;
+    min-height: 480px;
+  }
 }
 .hero__score-img {
   position: relative;
   border-radius: var(--r-xl);
   overflow: hidden;
   box-shadow: 0 32px 80px rgba(0,0,0,.55);
-  transform: rotate(3deg);
-  transform-origin: center bottom;
+  width: 100%;
   transition: transform .4s ease;
 }
 .hero__score-img:hover {
-  transform: rotate(1.5deg) translateY(-4px);
+  transform: scale(1.01);
 }
 .hero__score-img img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
+  object-position: top left;
   opacity: .92;
 }
 .hero__score-img::after {
@@ -366,10 +371,10 @@ h4 { font-size: 1rem; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right,  var(--primary-dark) 0%, transparent 32%),
-    linear-gradient(to left,   var(--primary-dark) 0%, transparent 18%),
-    linear-gradient(to bottom, var(--primary-dark) 0%, transparent 18%),
-    linear-gradient(to top,    var(--primary-dark) 0%, transparent 32%);
+    linear-gradient(to right,  var(--primary-dark) 0%, transparent 30%),
+    linear-gradient(to left,   var(--primary-dark) 0%, transparent 15%),
+    linear-gradient(to bottom, var(--primary-dark) 0%, transparent 15%),
+    linear-gradient(to top,    var(--primary-dark) 0%, transparent 28%);
   pointer-events: none;
 }
 .score-card {
@@ -1352,6 +1357,88 @@ h4 { font-size: 1rem; }
   line-height: 1.6;
   cursor: default;
   font-style: italic;
+}
+
+/* ===== A CHI MI RIVOLGO ===== */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+@media (max-width: 700px) {
+  .audience-grid { grid-template-columns: 1fr; }
+}
+.audience-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  transition: box-shadow .2s, transform .2s;
+}
+.audience-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.audience-card--gift {
+  border-color: var(--accent);
+  background: linear-gradient(135deg, #fff 70%, rgba(196,151,61,.07));
+}
+.audience-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+.audience-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.audience-card p {
+  color: var(--text-2);
+  font-size: .9rem;
+  line-height: 1.6;
+  flex: 1;
+}
+.audience-cta {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: gap .18s;
+}
+.audience-cta:hover { text-decoration: underline; }
+
+/* ===== FORM SELECT ===== */
+.contact-form select {
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: .95rem;
+  font-family: inherit;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238896A8' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+  transition: border-color .18s;
+}
+.contact-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ===== REVIEWS CTA LABEL ===== */
+.reviews-cta-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-bottom: .75rem;
 }
 
 /* ===== UTILITIES ===== */

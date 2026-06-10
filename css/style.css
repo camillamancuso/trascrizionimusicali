@@ -1439,6 +1439,35 @@ h4 { font-size: 1rem; }
   margin-bottom: .75rem;
 }
 
+/* ===== MOBILE ===== */
+@media (max-width: 640px) {
+  /* Sections: reduce vertical padding */
+  .section, .section-alt, .section-dark { padding: 3.5rem 0; }
+  .section-header { margin-bottom: 2.25rem; }
+
+  /* Hero: tighten spacing */
+  .hero { padding: 5rem 0 3rem; }
+  .hero__title { font-size: clamp(2rem, 8vw, 2.6rem); }
+  .hero__ctas { flex-direction: column; align-items: stretch; }
+  .hero__ctas .btn { text-align: center; }
+
+  /* Trust bar: 2×2 on narrow screens */
+  .trust-bar__inner { gap: .75rem 1.5rem; }
+  .trust-item { min-width: calc(50% - 1rem); }
+
+  /* Pricing: single column */
+  .pricing-grid { grid-template-columns: 1fr; }
+
+  /* Footer: organised 2-column link grid */
+  .footer__inner { padding: 2.5rem 0 1.25rem; gap: 1.5rem; }
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .6rem .75rem;
+  }
+  .footer-bottom { padding-top: 1.25rem; text-align: center; }
+}
+
 /* ===== UTILITIES ===== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; }

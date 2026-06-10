@@ -675,7 +675,7 @@ h4 { font-size: 1rem; }
 }
 .portfolio-info { padding: 1.25rem; }
 .portfolio-info h4 { color: var(--text); margin-bottom: .3rem; }
-.portfolio-info p  { color: var(--text-2); font-size: .855rem; margin-bottom: .75rem; }
+.portfolio-info p  { color: var(--text-2); font-size: .855rem; margin-bottom: .75rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .portfolio-tags {
   display: flex;
   flex-wrap: wrap;
@@ -1145,6 +1145,205 @@ h4 { font-size: 1rem; }
   font-family: 'Playfair Display', serif;
   font-size: .95rem;
   text-align: center;
+}
+
+/* ===== COME FUNZIONA ===== */
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .steps-grid { grid-template-columns: repeat(3, 1fr); }
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 26px;
+    left: calc(16.66% + 1rem);
+    right: calc(16.66% + 1rem);
+    height: 2px;
+    background: linear-gradient(to right, var(--accent), var(--secondary));
+    opacity: .3;
+    pointer-events: none;
+  }
+}
+.step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.step-number {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 6px rgba(28,43,74,.08);
+  position: relative;
+  z-index: 1;
+}
+.step-item h3 { color: var(--primary); font-size: 1.05rem; }
+.step-item > p { color: var(--text-2); font-size: .9rem; line-height: 1.7; max-width: 280px; }
+
+/* ===== PREZZI ===== */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (min-width: 640px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.pricing-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: box-shadow .2s, transform .2s;
+}
+.pricing-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+.pricing-card--featured {
+  border-color: var(--accent);
+  background: linear-gradient(150deg, #fffbf0 0%, #fff 60%);
+  position: relative;
+}
+.pricing-badge {
+  position: absolute;
+  top: -1px;
+  right: 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: .22rem .75rem;
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+}
+.pricing-card h3 { color: var(--primary); font-size: 1.1rem; }
+.pricing-desc { color: var(--text-3); font-size: .85rem; line-height: 1.55; flex: none !important; display: block !important; -webkit-line-clamp: unset !important; overflow: visible !important; }
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  gap: .35rem;
+}
+.price-from { font-size: .82rem; color: var(--text-3); }
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+.price-note { font-size: .8rem; color: var(--text-3); }
+.pricing-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  flex: 1;
+}
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .88rem;
+  color: var(--text-2);
+}
+.pricing-features li::before {
+  content: '✓';
+  color: var(--green);
+  font-weight: 700;
+  font-size: .85rem;
+  flex-shrink: 0;
+}
+.pricing-note {
+  text-align: center;
+  font-size: .9rem;
+  color: var(--text-3);
+}
+.pricing-note a { color: var(--accent); font-weight: 600; }
+.pricing-note a:hover { text-decoration: underline; }
+
+/* ===== FAQ ===== */
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.faq-item {
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+  background: var(--surface);
+  text-align: left;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .18s;
+  gap: 1rem;
+}
+.faq-q::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  transition: transform .25s;
+  line-height: 1;
+  font-weight: 300;
+}
+.faq-item.open .faq-q { background: var(--bg); }
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+  background: var(--bg);
+}
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-a p {
+  color: var(--text-2);
+  font-size: .9rem;
+  line-height: 1.7;
+  padding: 0 1.5rem 1.2rem;
+}
+
+/* ===== LIGHTBOX DESCRIPTION ===== */
+.lightbox__desc {
+  color: rgba(255,255,255,.58);
+  font-size: .875rem;
+  text-align: center;
+  max-width: min(90vw, 640px);
+  line-height: 1.6;
+  cursor: default;
+  font-style: italic;
 }
 
 /* ===== UTILITIES ===== */

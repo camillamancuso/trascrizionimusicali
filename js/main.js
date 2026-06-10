@@ -135,18 +135,22 @@ if (contactForm && formSuccess) {
 }
 
 /* ===== LIGHTBOX ===== */
-const lightbox       = document.getElementById('lightbox');
-const lightboxImg    = document.getElementById('lightboxImg');
+const lightbox        = document.getElementById('lightbox');
+const lightboxImg     = document.getElementById('lightboxImg');
 const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxDesc    = document.getElementById('lightboxDesc');
 
 document.querySelectorAll('.portfolio-img').forEach(container => {
   container.style.cursor = 'zoom-in';
   container.addEventListener('click', () => {
-    const img   = container.querySelector('img');
-    const title = container.closest('.portfolio-item').querySelector('h4').textContent;
-    lightboxImg.src        = img.src;
-    lightboxImg.alt        = img.alt;
-    lightboxCaption.textContent = title;
+    const img    = container.querySelector('img');
+    const item   = container.closest('.portfolio-item');
+    const title  = item.querySelector('h4').textContent;
+    const descEl = item.querySelector('.portfolio-info p');
+    lightboxImg.src              = img.src;
+    lightboxImg.alt              = img.alt;
+    lightboxCaption.textContent  = title;
+    if (lightboxDesc) lightboxDesc.textContent = descEl ? descEl.textContent : '';
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
@@ -165,6 +169,17 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbo
 document.querySelectorAll('.portfolio-img img').forEach(img => {
   img.addEventListener('error', () => {
     img.style.display = 'none';
+  });
+});
+
+/* ===== FAQ ACCORDION ===== */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item   = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+    btn.setAttribute('aria-expanded', String(!isOpen));
   });
 });
 

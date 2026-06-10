@@ -347,21 +347,29 @@ h4 { font-size: 1rem; }
   position: relative;
   border-radius: var(--r-xl);
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0,0,0,.45);
+  box-shadow: 0 32px 80px rgba(0,0,0,.55);
+  transform: rotate(3deg);
+  transform-origin: center bottom;
+  transition: transform .4s ease;
+}
+.hero__score-img:hover {
+  transform: rotate(1.5deg) translateY(-4px);
 }
 .hero__score-img img {
   width: 100%;
   height: auto;
   display: block;
-  opacity: .88;
+  opacity: .92;
 }
 .hero__score-img::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, var(--primary-dark) 0%, transparent 38%),
-    linear-gradient(to bottom, transparent 60%, var(--primary-dark) 100%);
+    linear-gradient(to right,  var(--primary-dark) 0%, transparent 32%),
+    linear-gradient(to left,   var(--primary-dark) 0%, transparent 18%),
+    linear-gradient(to bottom, var(--primary-dark) 0%, transparent 18%),
+    linear-gradient(to top,    var(--primary-dark) 0%, transparent 32%);
   pointer-events: none;
 }
 .score-card {

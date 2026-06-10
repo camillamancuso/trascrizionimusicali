@@ -283,7 +283,7 @@ h4 { font-size: 1rem; }
   align-items: center;
 }
 @media (min-width: 900px) {
-  .hero__inner { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: stretch; }
+  .hero__inner { grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 }
 
 .hero__badge {
@@ -343,8 +343,7 @@ h4 { font-size: 1rem; }
 @media (min-width: 900px) {
   .hero__visual {
     display: flex;
-    align-items: stretch;
-    min-height: 480px;
+    align-items: center;
   }
 }
 .hero__score-img {
@@ -353,6 +352,7 @@ h4 { font-size: 1rem; }
   overflow: hidden;
   box-shadow: 0 32px 80px rgba(0,0,0,.55);
   width: 100%;
+  aspect-ratio: 4 / 3;
   transition: transform .4s ease;
 }
 .hero__score-img:hover {
@@ -1386,10 +1386,8 @@ h4 { font-size: 1rem; }
   border-color: var(--accent);
   background: linear-gradient(135deg, #fff 70%, rgba(196,151,61,.07));
 }
-.audience-icon {
-  font-size: 2rem;
-  line-height: 1;
-}
+.audience-icon { display: flex; color: var(--accent); }
+.audience-icon svg { width: 2rem; height: 2rem; flex-shrink: 0; }
 .audience-card h3 {
   font-size: 1.1rem;
   font-weight: 700;

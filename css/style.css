@@ -939,6 +939,31 @@ h4 { font-size: 1rem; }
 }
 .form-group textarea { resize: vertical; }
 
+/* Billing type toggle */
+.billing-toggle {
+  display: flex;
+  gap: .75rem;
+}
+.billing-option {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem 1.1rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  cursor: pointer;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: border-color .18s, background .18s;
+}
+.billing-option:has(input:checked) {
+  border-color: var(--secondary);
+  background: rgba(74,111,165,.06);
+}
+.billing-option input { accent-color: var(--secondary); }
+.billing-fields { display: flex; flex-direction: column; gap: 1.2rem; }
+
 /* File upload */
 .file-upload {
   position: relative;
@@ -1053,6 +1078,12 @@ h4 { font-size: 1rem; }
 }
 .contact-card-icon.fiverr    { background: #1DBF73; color: #fff; }
 .contact-card-icon.paidtabs  { background: var(--primary); color: #fff; }
+.contact-card-icon.telegram  { background: #26A5E4; color: #fff; }
+.contact-card-icon.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  font-size: .8rem;
+}
 .contact-card-icon.email     {
   background: var(--bg);
   border: 1.5px solid var(--border);

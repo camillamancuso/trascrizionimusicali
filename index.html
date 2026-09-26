@@ -1504,6 +1504,68 @@
               <input type="date" id="deadline" name="deadline">
             </div>
 
+            <div class="form-group">
+              <label>Dati di fatturazione *</label>
+              <div class="billing-toggle">
+                <label class="billing-option">
+                  <input type="radio" name="billing_type" value="privato" checked>
+                  <span>Privato</span>
+                </label>
+                <label class="billing-option">
+                  <input type="radio" name="billing_type" value="azienda">
+                  <span>Azienda</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="billing-fields" id="billingPrivato">
+              <div class="form-group">
+                <label for="codice-fiscale">Codice Fiscale *</label>
+                <input type="text" id="codice-fiscale" name="codice_fiscale" placeholder="RSSMRA80A01H501U">
+              </div>
+            </div>
+
+            <div class="billing-fields" id="billingAzienda" style="display:none">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ragione-sociale">Ragione Sociale *</label>
+                  <input type="text" id="ragione-sociale" name="ragione_sociale" placeholder="Nome dell'azienda">
+                </div>
+                <div class="form-group">
+                  <label for="piva">Partita IVA *</label>
+                  <input type="text" id="piva" name="partita_iva" placeholder="Partita IVA">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sdi-pec">Codice SDI o PEC *</label>
+                <input type="text" id="sdi-pec" name="sdi_pec" placeholder="Codice destinatario (7 cifre) o indirizzo PEC">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Indirizzo di fatturazione *</label>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="indirizzo-via">Via e numero civico *</label>
+                <input type="text" id="indirizzo-via" name="indirizzo_via" required placeholder="Via Roma, 12">
+              </div>
+              <div class="form-group">
+                <label for="indirizzo-cap">CAP *</label>
+                <input type="text" id="indirizzo-cap" name="indirizzo_cap" required placeholder="00100">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="indirizzo-citta">Città *</label>
+                <input type="text" id="indirizzo-citta" name="indirizzo_citta" required placeholder="Roma">
+              </div>
+              <div class="form-group">
+                <label for="indirizzo-provincia">Provincia *</label>
+                <input type="text" id="indirizzo-provincia" name="indirizzo_provincia" required placeholder="RM" maxlength="2">
+              </div>
+            </div>
+
             <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
               <span id="btnText">Richiedi preventivo gratuito</span>
               <span id="btnLoading" style="display:none">Invio in corso...</span>
@@ -1549,6 +1611,26 @@
               <div class="contact-card-text">
                 <strong>Email diretta</strong>
                 <span>info@musicamillamente.it</span>
+              </div>
+              <span class="contact-card-arrow">→</span>
+            </a>
+
+            <a href="https://t.me/musicamillamente"
+               target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-card-icon telegram">T</div>
+              <div class="contact-card-text">
+                <strong>Telegram</strong>
+                <span>Scrivimi direttamente in chat</span>
+              </div>
+              <span class="contact-card-arrow">→</span>
+            </a>
+
+            <a href="https://www.instagram.com/sheetmusicami/"
+               target="_blank" rel="noopener noreferrer" class="contact-card">
+              <div class="contact-card-icon instagram">IG</div>
+              <div class="contact-card-text">
+                <strong>Instagram</strong>
+                <span>@sheetmusicami</span>
               </div>
               <span class="contact-card-arrow">→</span>
             </a>

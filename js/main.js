@@ -88,6 +88,32 @@ if (fileInput && fileNameEl) {
   });
 }
 
+/* ===== BILLING TYPE TOGGLE ===== */
+const billingRadios  = document.querySelectorAll('input[name="billing_type"]');
+const billingPrivato = document.getElementById('billingPrivato');
+const billingAzienda = document.getElementById('billingAzienda');
+const codiceFiscale  = document.getElementById('codice-fiscale');
+const ragioneSociale = document.getElementById('ragione-sociale');
+const partitaIva     = document.getElementById('piva');
+const sdiPec         = document.getElementById('sdi-pec');
+
+function updateBillingFields() {
+  const isAzienda = document.querySelector('input[name="billing_type"]:checked').value === 'azienda';
+
+  billingPrivato.style.display = isAzienda ? 'none' : '';
+  billingAzienda.style.display = isAzienda ? '' : 'none';
+
+  codiceFiscale.required  = !isAzienda;
+  ragioneSociale.required = isAzienda;
+  partitaIva.required     = isAzienda;
+  sdiPec.required         = isAzienda;
+}
+
+if (billingRadios.length) {
+  billingRadios.forEach(radio => radio.addEventListener('change', updateBillingFields));
+  updateBillingFields();
+}
+
 /* ===== CONTACT FORM SUBMISSION ===== */
 const contactForm = document.getElementById('contactForm');
 const formSuccess = document.getElementById('formSuccess');
